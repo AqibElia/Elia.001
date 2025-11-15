@@ -2,6 +2,15 @@
     {
         "caretX": 1,
         "caretY": 1,
+        "filename": "C:/Elia.001/Dostify/untitled1.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
         "filename": "C:/Elia.001/Dostify/main.cpp",
         "focused": true,
         "isOpen": true,

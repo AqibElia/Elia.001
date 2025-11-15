@@ -1,0 +1,40 @@
+# Project: Dostify
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = Dostify_private.res
+OBJ      = main.o untitled1.o $(RES)
+BIN      = Dostify.exe
+LINKOBJ  = "main.o" "untitled1.o" "Dostify_private.res"
+CLEANOBJ = "main.o" "untitled1.o" "Dostify_private.res" "Dostify.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+Dostify.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "Dostify.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+untitled1.o: untitled1.cpp
+	$(CXX) -c "untitled1.cpp" -o "untitled1.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1252
+
+Dostify_private.res: Dostify_private.rc 
+	$(WINDRES) -i "Dostify_private.rc" --input-format=rc -o "Dostify_private.res" -O coff $(WINDRESFLAGS) 
+
